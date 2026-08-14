@@ -29,7 +29,7 @@ export const site = {
 export const socials = [
   { name: "LinkedIn", href: "https://www.linkedin.com/company/cinevenn" },
   { name: "Facebook", href: "https://www.facebook.com/cinevenn" },
-  { name: "X", href: "https://x.com/cinevennhq" },
+  { name: "X", href: "https://x.com/cinevenn" },
   { name: "Instagram", href: "https://www.instagram.com/cinevenn" },
   { name: "TikTok", href: "https://www.tiktok.com/@cinevenn" },
   { name: "YouTube", href: "https://www.youtube.com/@cinevennhq" },
