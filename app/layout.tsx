@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Playfair_Display } from "next/font/google";
-import { organizationSchema, faqSchema, site } from "@/lib/site";
+import { organizationSchema, faqSchema, site, twitterHandle } from "@/lib/site";
 import "./globals.css";
 
 const geist = Geist({
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@cinevennhq",
+    site: twitterHandle,
     title: site.ogTitle,
     description: site.description,
   },

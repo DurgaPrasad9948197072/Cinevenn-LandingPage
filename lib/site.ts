@@ -35,6 +35,14 @@ export const socials = [
   { name: "YouTube", href: "https://www.youtube.com/@cinevennhq" },
 ] as const;
 
+/**
+ * X handle for the twitter:site card tag, derived from the X entry above so
+ * the meta tag, the footer link and the schema sameAs can never disagree.
+ */
+export const twitterHandle = `@${
+  socials.find((s) => s.name === "X")!.href.split("/").filter(Boolean).pop()
+}`;
+
 export type Feature = {
   id: string;
   title: string;
