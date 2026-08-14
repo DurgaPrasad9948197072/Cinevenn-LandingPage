@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import { site } from "@/lib/site";
 import Reveal from "./Reveal";
 
 export default function FounderQuote() {
@@ -10,9 +11,20 @@ export default function FounderQuote() {
           This is my love for cinema. This is why I&apos;m building it — we need cinema to
           feel alive.
         </blockquote>
+        {/* Attribution links to the founder URL asserted in the Organization
+            schema, so the structured data is backed by a visible link. */}
         <p className="mt-6.5 inline-flex items-center gap-3 text-[13px] font-semibold tracking-[0.16em] text-dim uppercase">
           <span aria-hidden className="block h-px w-8.5 bg-line-strong" />
-          46DC, Founder
+          <span>
+            <a
+              href={site.founder.url}
+              rel="noopener"
+              target="_blank"
+              className="border-b border-transparent transition-colors duration-160 hover:border-accent hover:text-accent"
+            >
+              {site.founder.alternateName}
+            </a>{", Founder"}
+          </span>
         </p>
       </Reveal>
     </section>
