@@ -32,8 +32,8 @@ export default function Nav() {
           <Image
             src="/cinevenn-logo.png"
             alt=""
-            width={101}
-            height={132}
+            width={302}
+            height={396}
             priority
             className="h-[34px] w-auto"
           />

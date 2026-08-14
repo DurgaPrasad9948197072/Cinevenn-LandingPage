@@ -26,8 +26,8 @@ export default function Footer() {
             <Image
               src="/cinevenn-logo.png"
               alt=""
-              width={101}
-              height={132}
+              width={302}
+              height={396}
               className="h-10 w-auto"
             />
             <span className="font-display text-xl font-semibold">Cinevenn</span>
