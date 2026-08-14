@@ -42,22 +42,15 @@ To go Geist-only, point `--font-display` at `var(--font-geist-sans)`.
   social card use Next's file conventions (`app/icon.ico`, `app/opengraph-image.png`),
   so they're content-hashed and cached automatically.
 - **`app/sitemap.ts` / `app/robots.ts`** are typed and generated at build time.
-- **Email capture is a Server Action** ([`app/actions.ts`](app/actions.ts)) — a real
-  server-side place to wire storage, with validation, a honeypot, and **progressive
-  enhancement**: the form works with JavaScript disabled.
 - Everything is statically prerendered (`○ (Static)` for all routes).
 
 ## Before you publish
 
-1. **Wire the launch list.** Copy `.env.example` to `.env.local` and set
-   `SUBSCRIBE_ENDPOINT` to your destination (Formspree, Mailchimp, or your own API).
-   It receives `{ email, source }` as a JSON POST. Until it's set the action refuses
-   the signup and logs a warning rather than silently dropping it.
-2. **Confirm the social handles** in `lib/site.ts` — they feed both the footer links
+1. **Confirm the social handles** in `lib/site.ts` — they feed both the footer links
    and the schema `sameAs` array.
-3. **Point `site.url`** at the production domain if it ever changes; `metadataBase`,
+2. **Point `site.url`** at the production domain if it ever changes; `metadataBase`,
    canonical, sitemap and robots all derive from it.
-4. **Submit the sitemap** to Google Search Console, then check the FAQ rich result:
+3. **Submit the sitemap** to Google Search Console, then check the FAQ rich result:
    https://search.google.com/test/rich-results
 
 ## Layout
@@ -67,17 +60,16 @@ app/
   layout.tsx           metadata, fonts, JSON-LD, skip link, grain overlay
   page.tsx             section composition
   globals.css          brand tokens + Tailwind theme
-  actions.ts           subscribe() server action
   sitemap.ts robots.ts
   icon.ico  apple-icon.png  opengraph-image.png  twitter-image.png
 components/            Nav, Hero, FounderQuote, About, Features,
-                       Audience, Faq, Join, JoinForm, Footer, Reveal
+                       Audience, Faq, Join, Footer, Reveal
 lib/site.ts            all copy, FAQ data, structured data
 public/                logo assets
 ```
 
 ## Accessibility & motion
 
-Skip link, visible focus rings, 44px touch targets, labelled icon-only links, and
-`aria-live` form status. `prefers-reduced-motion` disables the reveal animations and
+Skip link, visible focus rings, 44px touch targets, and labelled icon-only links.
+`prefers-reduced-motion` disables the reveal animations and
 film grain; a `<noscript>` rule keeps all content visible if JS never runs.

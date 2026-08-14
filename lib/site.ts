@@ -129,9 +129,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "When does Cinevenn launch?",
-    a: "Cinevenn is currently in the final stages of development. Join the email list to be notified the moment it's live.",
-    schemaAnswer:
-      "Cinevenn is currently in the final stages of development. Visitors can join the email list to be notified when it launches.",
+    a: "Cinevenn is currently in the final stages of development. Phase 1 launches in India, the world's largest film market by volume, before expanding globally.",
   },
 ];
 

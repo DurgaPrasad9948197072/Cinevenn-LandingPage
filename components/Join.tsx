@@ -1,4 +1,3 @@
-import JoinForm from "./JoinForm";
 import Reveal from "./Reveal";
 
 export default function Join() {
@@ -15,16 +14,15 @@ export default function Join() {
 
       <Reveal className="mx-auto w-full max-w-[600px] px-5 sm:px-7">
         <p className="mb-3.5 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-          Launch list
+          Coming soon
         </p>
         <h2 className="font-display text-[clamp(28px,5.2vw,44px)] leading-[1.15] font-medium tracking-[-0.015em]">
           Be first to join Cinevenn
         </h2>
         <p className="mt-3.5 text-muted-fg">
-          The platform opens in phases. The list goes first.
+          Cinevenn is in the final stages of development. Phase 1 launches in India, before
+          expanding globally.
         </p>
-
-        <JoinForm />
       </Reveal>
     </section>
   );
