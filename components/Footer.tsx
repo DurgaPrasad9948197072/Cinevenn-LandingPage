@@ -22,15 +22,25 @@ export default function Footer() {
     <footer className="border-t border-line bg-[#0c0c0e] py-14 pb-11">
       <div className="mx-auto grid w-full max-w-[1140px] gap-8 px-5 sm:px-7 lg:grid-cols-[1fr_auto] lg:items-start">
         <div>
-          <Link href="#top" aria-label="Cinevenn home" className="mb-4 inline-flex items-center gap-2.5">
-            <Image
-              src="/cinevenn-logo.png"
-              alt=""
-              width={302}
-              height={396}
-              className="h-7 w-auto"
-            />
-            <span className="font-display text-xl font-semibold">Cinevenn</span>
+          <Link href="#top" aria-label="Cinevenn home" className="mb-5 inline-flex items-center gap-3.5">
+            <span className="relative inline-block">
+              <span
+                aria-hidden
+                className="pointer-events-none absolute top-1/2 left-1/2 -z-10 size-[190%] -translate-x-1/2 -translate-y-1/2"
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(245,158,11,.18) 0%, transparent 68%)",
+                }}
+              />
+              <Image
+                src="/cinevenn-logo.png"
+                alt=""
+                width={302}
+                height={396}
+                className="h-14 w-auto drop-shadow-[0_0_18px_rgba(245,158,11,.25)]"
+              />
+            </span>
+            <span className="font-display text-2xl font-semibold">Cinevenn</span>
           </Link>
 
           <p className="max-w-[44ch] text-[15.5px] text-muted-fg">
