@@ -20,7 +20,7 @@ export default function FounderQuote() {
               href={site.founder.url}
               rel="noopener"
               target="_blank"
-              className="border-b border-transparent transition-colors duration-160 hover:border-accent hover:text-accent"
+              className="text-muted-fg underline decoration-dim decoration-from-font underline-offset-4 transition-colors duration-160 hover:text-accent hover:decoration-accent"
             >
               {site.founder.alternateName}
             </a>{", Founder"}

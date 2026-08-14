@@ -45,7 +45,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-muted-fg transition-colors duration-160 hover:text-foreground"
+              className="text-muted-fg underline-offset-6 transition-colors duration-160 hover:text-foreground hover:underline hover:decoration-accent"
             >
               {l.label}
             </a>

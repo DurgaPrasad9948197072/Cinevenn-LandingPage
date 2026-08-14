@@ -51,6 +51,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Keyboard focus — every interactive element gets a visible ring */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Anchors and buttons must always read as clickable */
+a[href],
+button:not(:disabled),
+summary {
+  cursor: pointer;
+}
+
 /* Custom scrollbar — matches the app */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: #111113; }
