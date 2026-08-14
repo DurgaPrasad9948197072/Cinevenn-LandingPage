@@ -28,7 +28,7 @@ export default function Footer() {
               alt=""
               width={302}
               height={396}
-              className="h-10 w-auto"
+              className="h-7 w-auto"
             />
             <span className="font-display text-xl font-semibold">Cinevenn</span>
           </Link>
