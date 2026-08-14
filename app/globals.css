@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Brand tokens — mirrored from the Cinevenn app (frontend/src/app/globals.css).
+   Keep in sync with the product so the landing page and platform match.
+   ────────────────────────────────────────────────────────────────────────── */
+:root {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #111113;
+  --card-hover: #1a1a1f;
+  --border: #27272a;
+  --border-subtle: #1f1f23;
+  --accent: #f59e0b;
+  --accent-hover: #fbbf24;
+  --muted: #3f3f46;
+  --muted-foreground: #a1a1aa;
+  --dim: #71717a;
+  --navbar-height: 60px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-line: var(--border-subtle);
+  --color-line-strong: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-muted: var(--muted);
+  --color-muted-fg: var(--muted-foreground);
+  --color-dim: var(--dim);
+
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-playfair);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 #111113;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar — matches the app */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #111113; }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
+
+/* Gold gradient text — matches .text-gradient-gold in the app */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glass — matches .glass in the app */
+.glass {
+  background: rgba(17, 17, 19, 0.8);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  50%      { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+}
+.animate-pulse-gold { animation: pulse-gold 2.4s ease-out infinite; }
+
+/* Film grain overlay */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 700ms steps(4) infinite;
+}
+@keyframes grain-shift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-3%, 2%); }
+  50%  { transform: translate(2%, -3%); }
+  75%  { transform: translate(-2%, -2%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Scroll reveal (see components/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+/* Pointer-tracked card glow */
+.card-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 240ms cubic-bezier(0.2, 0.7, 0.3, 1);
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(245, 158, 11, 0.12),
+    transparent 62%
+  );
+}
+.card-glow:hover::after { opacity: 1; }
+
+/* Native <details> marker off — we render our own +/− */
+summary::-webkit-details-marker { display: none; }
+summary { list-style: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
