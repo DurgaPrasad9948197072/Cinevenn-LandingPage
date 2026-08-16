@@ -14,6 +14,13 @@ const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.cinevenn.com"
 ).replace(/\/+$/, "");
 
+/**
+ * Date the page content last meaningfully changed — bump it when you edit copy.
+ * Deliberately NOT `new Date()`: a build-time stamp tells Google the page
+ * changed on every deploy even when nothing did, which devalues the signal.
+ */
+export const contentUpdated = new Date("2026-08-16");
+
 export const site = {
   name: "Cinevenn",
   url: SITE_URL,

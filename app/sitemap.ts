@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/lib/site";
+import { contentUpdated, site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: site.url,
-      lastModified: new Date(),
+      lastModified: contentUpdated,
       changeFrequency: "weekly",
       priority: 1,
     },
