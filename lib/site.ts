@@ -4,9 +4,19 @@
  * JSON-LD, so the two can never drift apart.
  */
 
+/**
+ * Canonical origin. MUST be the host that actually serves a 200 — cinevenn.com
+ * 308-redirects to www.cinevenn.com, so pointing canonical/sitemap/og:url at the
+ * bare domain made every URL we published redirect, which is a conflicting
+ * signal for crawlers. Override per-environment with NEXT_PUBLIC_SITE_URL.
+ */
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.cinevenn.com"
+).replace(/\/+$/, "");
+
 export const site = {
   name: "Cinevenn",
-  url: "https://cinevenn.com",
+  url: SITE_URL,
   email: "contact@cinevenn.com",
   title: "Cinevenn — Digital Infrastructure for Film & Entertainment",
   description:
