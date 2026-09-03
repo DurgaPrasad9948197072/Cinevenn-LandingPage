@@ -2,7 +2,7 @@ import { ArrowDown } from "lucide-react";
 import Reveal from "./Reveal";
 
 const stats = [
-  { value: "5", label: "Core pillars, one platform" },
+  { value: "10", label: "Core pillars, one platform" },
   { value: "100%", label: "Verified profiles & credits" },
   { value: "India", label: "Phase 1 launch market" },
 ];
@@ -33,10 +33,10 @@ export default function Hero() {
           </Reveal>
 
           <Reveal as="p" delay={120} className="mb-8.5 max-w-[60ch] text-[clamp(16.5px,2.1vw,19px)] text-muted-fg">
-            Verified profiles, real auditions, protected scripts, a working marketplace, and
-            open challenges — one platform for everyone who makes film happen. Phase 1
-            launches in India, the world&apos;s largest film market by volume, before
-            expanding globally.
+            Verified profiles, real auditions, protected scripts, a working marketplace, open
+            challenges, and the tools to discover, connect and grow — one platform for everyone
+            who makes film happen. Phase 1 launches in India, the world&apos;s largest film
+            market by volume, before expanding globally.
           </Reveal>
 
           <Reveal delay={180} className="mb-14 flex flex-wrap gap-3">

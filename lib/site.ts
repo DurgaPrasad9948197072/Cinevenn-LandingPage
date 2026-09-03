@@ -65,7 +65,17 @@ export type Feature = {
   title: string;
   body: string;
   /** lucide-react icon name, resolved in components/Features.tsx */
-  icon: "ShieldCheck" | "Clapperboard" | "FileLock2" | "Store" | "Trophy";
+  icon:
+    | "ShieldCheck"
+    | "Clapperboard"
+    | "FileLock2"
+    | "Store"
+    | "Trophy"
+    | "Search"
+    | "Newspaper"
+    | "Star"
+    | "MessagesSquare"
+    | "ChartColumn";
   /** Highlighted card treatment */
   featured?: boolean;
 };
@@ -102,6 +112,36 @@ export const features: Feature[] = [
     icon: "Trophy",
     body: "Open competitions that reward merit, not connections. Writing challenges, short film contests, and talent showcases give new voices a real way to get discovered.",
   },
+  {
+    id: "discover",
+    title: "Discover",
+    icon: "Search",
+    body: "Search and browse verified talent, crew, projects and scripts by role, skill, language and city — one directory for the whole industry.",
+  },
+  {
+    id: "feed",
+    title: "Feed",
+    icon: "Newspaper",
+    body: "A professional feed for the industry — behind-the-scenes clips, project updates and script announcements, shared with the people who actually work in film.",
+  },
+  {
+    id: "reviews-hub",
+    title: "Reviews Hub",
+    icon: "Star",
+    body: "Verified industry reviews and audience polls, organised by release week and language — one trusted source for professionals and audiences alike.",
+  },
+  {
+    id: "messages",
+    title: "Messages",
+    icon: "MessagesSquare",
+    body: "Request-based messaging keeps outreach relevant. Professionals connect through a curated request system — no cold inboxes, no spam.",
+  },
+  {
+    id: "analytics",
+    title: "Analytics",
+    icon: "ChartColumn",
+    body: "Real insight into your own reach — engagement, audience mix and script performance — so every verified profile knows what's actually working.",
+  },
 ];
 
 export const audience = [
@@ -134,7 +174,7 @@ export type Faq = {
 export const faqs: Faq[] = [
   {
     q: "What is Cinevenn?",
-    a: "Cinevenn is a technology and media platform for the film industry — connecting directors, producers, writers, and crew through verified profiles, auditions, a script protection system called Script Seal, a professional marketplace, and talent challenges, all in one place.",
+    a: "Cinevenn is a technology and media platform for the film industry — connecting directors, producers, writers and crew through verified profiles, real auditions, protected scripts (Script Seal), a professional marketplace and open talent challenges, alongside a dedicated industry feed, searchable talent and project discovery, verified movie reviews, request-based messaging and creator analytics — all in one place.",
   },
   {
     q: "Where does Cinevenn launch first?",
@@ -150,7 +190,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Is Cinevenn part of FourSix46?",
-    a: "Yes. Cinevenn is a venture built by Stack46 under FourSix46 Global Ltd, a UK-registered parent brand.",
+    a: "Yes. Cinevenn is part of FourSix46® — a trading name of FourSix46® Global Ltd, a UK-registered parent company. It was built by the Stack46 engineering team.",
   },
   {
     q: "When does Cinevenn launch?",

@@ -1,11 +1,33 @@
 "use client";
 
-import { Clapperboard, FileLock2, ShieldCheck, Store, Trophy } from "lucide-react";
+import {
+  ChartColumn,
+  Clapperboard,
+  FileLock2,
+  MessagesSquare,
+  Newspaper,
+  Search,
+  ShieldCheck,
+  Star,
+  Store,
+  Trophy,
+} from "lucide-react";
 import type { MouseEvent } from "react";
 import { features } from "@/lib/site";
 import Reveal from "./Reveal";
 
-const icons = { ShieldCheck, Clapperboard, FileLock2, Store, Trophy } as const;
+const icons = {
+  ShieldCheck,
+  Clapperboard,
+  FileLock2,
+  Store,
+  Trophy,
+  Search,
+  Newspaper,
+  Star,
+  MessagesSquare,
+  ChartColumn,
+} as const;
 
 export default function Features() {
   /** Pointer-tracked glow — the CSS reads --mx/--my in .card-glow::after */
@@ -24,20 +46,21 @@ export default function Features() {
             The Platform
           </p>
           <h2 className="max-w-[20ch] font-display text-[clamp(28px,5.2vw,44px)] leading-[1.15] font-medium tracking-[-0.015em]">
-            Five pillars. One place the industry can actually work.
+            Ten pillars. One place the industry can actually work.
           </h2>
         </Reveal>
 
-        {/* Bento: row 1 = two halves, row 2 = three thirds. Always fills the row. */}
+        {/* Bento over 10 cards: 2 halves, then 3 + 3 thirds, then 2 halves.
+            2+3+3+2 = 10, so no row is ever left ragged. */}
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:gap-4.5">
           {features.map((f, i) => {
             const Icon = icons[f.icon];
-            const half = i < 2;
+            const half = i < 2 || i >= 8;
             return (
               <Reveal
                 key={f.id}
                 as="li"
-                delay={half ? 0 : 60 * (i - 1)}
+                delay={60 * (i % 3)}
                 className={half ? "lg:col-span-3" : "lg:col-span-2"}
               >
                 <article
