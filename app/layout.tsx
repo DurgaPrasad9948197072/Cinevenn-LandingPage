@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   title: site.title,
   description: site.description,
   applicationName: site.name,
-  authors: [{ name: "Stack46", url: site.parent.url }],
-  creator: "Stack46",
-  publisher: site.parent.name,
+  authors: [{ name: `${site.founder.name} (${site.founder.alternateName})`, url: site.founder.url }],
+  creator: site.builder.name,
+  publisher: site.company.name,
   alternates: { canonical: "/" },
   robots: {
     index: true,
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     url: site.url,
     siteName: site.name,
     title: site.ogTitle,
-    description: site.description,
-    locale: "en_US",
+    description: site.ogDescription,
+    locale: "en_GB",
   },
   twitter: {
     card: "summary_large_image",
     site: twitterHandle,
     title: site.ogTitle,
-    description: site.description,
+    description: site.ogDescription,
   },
 };
 

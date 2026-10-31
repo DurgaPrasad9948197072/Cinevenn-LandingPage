@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Fragment } from "react";
 import { site, socials } from "@/lib/site";
 
 /** Brand glyphs — lucide has no brand icons, so these are the official marks. */
@@ -17,12 +18,21 @@ const paths: Record<string, string> = {
     "M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8M10 15.1V8.9l5.2 3.1z",
 };
 
+const footerLinks = [
+  { label: "foursix46.com", href: site.ecosystem.url },
+  { label: "46dc.com", href: site.founder.url },
+  { label: site.email, href: `mailto:${site.email}` },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+  { label: "Founding Member terms", href: "/founding-terms" },
+];
+
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-[#0c0c0e] py-14 pb-11">
       <div className="mx-auto grid w-full max-w-[1140px] gap-8 px-5 sm:px-7 lg:grid-cols-[1fr_auto] lg:items-start">
         <div>
-          <Link href="#top" aria-label="Cinevenn home" className="mb-5 inline-flex items-center gap-3.5">
+          <Link href="/" aria-label="Cinevenn home" className="mb-5 inline-flex items-center gap-3.5">
             <span className="relative inline-block">
               <span
                 aria-hidden
@@ -43,30 +53,43 @@ export default function Footer() {
             <span className="font-display text-2xl font-semibold">Cinevenn</span>
           </Link>
 
-          <p className="max-w-[44ch] text-[15.5px] text-muted-fg">
-            Cinevenn is part of the FourSix46® ecosystem, built by Stack46.
+          <p className="max-w-[52ch] text-[15.5px] text-muted-fg">
+            Cinevenn is a {site.ecosystem.name} venture, founded by {site.founder.name} (
+            {site.founder.alternateName}). Built by {site.builder.name}.
           </p>
 
-          <p className="mt-3 text-[13.5px] leading-7 text-dim">
-            {site.parent.name} — Company No. {site.parent.companyNo} — Registered in England
-            &amp; Wales.
-            <br />
-            <a
-              href={site.parent.url}
-              rel="noopener"
-              className="border-b border-line-strong text-muted-fg transition-colors duration-160 hover:border-accent hover:text-accent"
-            >
-              foursix46.com
-            </a>
-            <span aria-hidden className="mx-2 text-line-strong">
-              ·
-            </span>
-            <a
-              href={`mailto:${site.email}`}
-              className="border-b border-line-strong text-muted-fg transition-colors duration-160 hover:border-accent hover:text-accent"
-            >
-              {site.email}
-            </a>
+          <p className="mt-4 max-w-[80ch] text-[13.5px] leading-6 text-dim">
+            {[
+              site.company.name,
+              `Company No. ${site.company.companyNo}`,
+              "Registered in England & Wales",
+              `Registered office: ${site.company.street}, ${site.company.city} ${site.company.postcode}`,
+              site.company.icoNumber && `ICO registration no. ${site.company.icoNumber}`,
+            ]
+              .filter(Boolean)
+              .join(" · ")}
+          </p>
+          <p className="mt-2 text-[13.5px] leading-6 text-dim">
+            FourSix46® is a registered trade mark of {site.ecosystem.owner}, used under licence.
+          </p>
+
+          <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13.5px] leading-7">
+            {footerLinks.map((l, i) => (
+              <Fragment key={l.href}>
+                {i > 0 && (
+                  <span aria-hidden className="text-line-strong">
+                    ·
+                  </span>
+                )}
+                <a
+                  href={l.href}
+                  {...(l.href.startsWith("http") && { rel: "noopener", target: "_blank" })}
+                  className="border-b border-line-strong text-muted-fg transition-colors duration-160 hover:border-accent hover:text-accent"
+                >
+                  {l.label}
+                </a>
+              </Fragment>
+            ))}
           </p>
         </div>
 
@@ -88,7 +111,7 @@ export default function Footer() {
         </nav>
 
         <p className="text-[13px] text-dim lg:col-span-2">
-          © {new Date().getFullYear()} Cinevenn. All rights reserved.
+          © {new Date().getFullYear()} {site.company.name}. All rights reserved.
         </p>
       </div>
     </footer>

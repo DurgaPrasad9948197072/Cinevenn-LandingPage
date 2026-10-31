@@ -18,7 +18,7 @@ export default function Faq() {
   };
 
   return (
-    <section id="faq" className="border-y border-line bg-[#0c0c0e] py-22 md:py-28">
+    <section id="faq" className="py-22 md:py-28">
       <div className="mx-auto w-full max-w-[1140px] px-5 sm:px-7">
         <Reveal className="mb-11 max-w-[640px]">
           <p className="mb-3.5 text-xs font-semibold tracking-[0.16em] text-accent uppercase">

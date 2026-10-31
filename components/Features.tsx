@@ -7,23 +7,21 @@ import {
   MessagesSquare,
   Newspaper,
   Search,
-  ShieldCheck,
   Star,
-  Store,
   Trophy,
+  UserCheck,
 } from "lucide-react";
 import type { MouseEvent } from "react";
 import { features } from "@/lib/site";
 import Reveal from "./Reveal";
 
 const icons = {
-  ShieldCheck,
+  UserCheck,
   Clapperboard,
   FileLock2,
-  Store,
-  Trophy,
   Search,
   Newspaper,
+  Trophy,
   Star,
   MessagesSquare,
   ChartColumn,
@@ -39,29 +37,27 @@ export default function Features() {
   };
 
   return (
-    <section id="features" className="border-y border-line bg-[#0c0c0e] py-22 md:py-28">
+    <section id="platform" className="py-22 md:py-28">
       <div className="mx-auto w-full max-w-[1140px] px-5 sm:px-7">
-        <Reveal className="mb-11 max-w-[640px]">
+        <Reveal className="mb-11 max-w-[720px]">
           <p className="mb-3.5 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
             The Platform
           </p>
-          <h2 className="max-w-[20ch] font-display text-[clamp(28px,5.2vw,44px)] leading-[1.15] font-medium tracking-[-0.015em]">
-            Ten pillars. One place the industry can actually work.
+          <h2 className="max-w-[24ch] font-display text-[clamp(28px,5.2vw,44px)] leading-[1.15] font-medium tracking-[-0.015em]">
+            Nine tools. One place the industry actually works. All live at launch.
           </h2>
         </Reveal>
 
-        {/* Bento over 10 cards: 2 halves, then 3 + 3 thirds, then 2 halves.
-            2+3+3+2 = 10, so no row is ever left ragged. */}
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:gap-4.5">
+        {/* Nine cards: an even 3 × 3 on desktop. */}
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4.5">
           {features.map((f, i) => {
             const Icon = icons[f.icon];
-            const half = i < 2 || i >= 8;
             return (
               <Reveal
                 key={f.id}
                 as="li"
                 delay={60 * (i % 3)}
-                className={half ? "lg:col-span-3" : "lg:col-span-2"}
+                className={i === features.length - 1 ? "sm:max-lg:col-span-2" : ""}
               >
                 <article
                   onMouseMove={track}

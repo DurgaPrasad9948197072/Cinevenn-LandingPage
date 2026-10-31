@@ -50,7 +50,9 @@ To go Geist-only, point `--font-display` at `var(--font-geist-sans)`.
    and the schema `sameAs` array.
 2. **Point `site.url`** at the production domain if it ever changes; `metadataBase`,
    canonical, sitemap and robots all derive from it.
-3. **Submit the sitemap** to Google Search Console, then check the FAQ rich result:
+3. **Point `signup.endpoint`** in `lib/site.ts` at the production API at launch
+   (it's staging now). The backend contract is in `docs/signup-api.md`.
+4. **Submit the sitemap** to Google Search Console, then check the FAQ rich result:
    https://search.google.com/test/rich-results
 
 ## Layout
@@ -58,13 +60,17 @@ To go Geist-only, point `--font-display` at `var(--font-geist-sans)`.
 ```
 app/
   layout.tsx           metadata, fonts, JSON-LD, skip link, grain overlay
-  page.tsx             section composition
+  page.tsx             default ($) variant of the landing page
+  [region]/page.tsx    prerendered /gb (£) and /in (₹) variants
   globals.css          brand tokens + Tailwind theme
   sitemap.ts robots.ts
-  icon.ico  apple-icon.png  opengraph-image.png  twitter-image.png
-components/            Nav, Hero, FounderQuote, About, Features,
-                       Audience, Faq, Join, Footer, Reveal
-lib/site.ts            all copy, FAQ data, structured data
+  opengraph-image.tsx  share card, rendered at build from lib/site.ts
+  icon.ico  apple-icon.png
+proxy.ts               rewrites / to the visitor's currency variant by country
+components/Landing.tsx section composition; one component per section
+lib/site.ts            all copy, FAQ data, structured data, offer values
+docs/signup-api.md     backend contract for sign-ups, emails and the discount
+assets/fonts/          static TTFs for the share card (OFL)
 public/                logo assets
 ```
 

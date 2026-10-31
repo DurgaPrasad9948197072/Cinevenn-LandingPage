@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import SignupForm from "./SignupForm";
 
 export default function Join() {
   return (
@@ -17,12 +18,12 @@ export default function Join() {
           Coming soon
         </p>
         <h2 className="font-display text-[clamp(28px,5.2vw,44px)] leading-[1.15] font-medium tracking-[-0.015em]">
-          Be first to join Cinevenn
+          A home for cinema opens soon.
         </h2>
         <p className="mt-3.5 text-muted-fg">
-          Cinevenn is in the final stages of development. Phase 1 launches in India, before
-          expanding globally.
+          Claim your Founding Member spot and get 12 months of Cinevenn free.
         </p>
+        <SignupForm source="final_cta" note="No card needed. Unsubscribe anytime." className="mt-8" />
       </Reveal>
     </section>
   );

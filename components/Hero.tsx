@@ -1,13 +1,12 @@
-import { ArrowDown } from "lucide-react";
+import Link from "next/link";
+import { site, stats } from "@/lib/site";
 import Reveal from "./Reveal";
+import SignupForm from "./SignupForm";
 
-const stats = [
-  { value: "10", label: "Core pillars, one platform" },
-  { value: "100%", label: "Verified profiles & credits" },
-  { value: "India", label: "Phase 1 launch market" },
-];
+const link =
+  "text-muted-fg underline decoration-line-strong underline-offset-4 transition-colors duration-160 hover:text-accent hover:decoration-accent";
 
-export default function Hero() {
+export default function Hero({ value }: { value: string }) {
   return (
     <section id="top" className="relative isolate overflow-hidden pt-33 pb-19 md:pt-42 md:pb-24">
       <div
@@ -23,42 +22,50 @@ export default function Hero() {
         <div className="max-w-[900px]">
           <Reveal as="p" className="mb-6.5 inline-flex items-center gap-2.5 rounded-full border border-line-strong bg-accent/12 py-1.75 pr-4 pl-3 text-[13px] font-medium text-accent-hover">
             <span aria-hidden className="animate-pulse-gold size-1.75 shrink-0 rounded-full bg-accent" />
-            Phase 1 — India · Coming soon
+            Phase 1 · Open worldwide · UK · USA · India
           </Reveal>
 
-          <Reveal as="h1" delay={60} className="mb-6 font-display text-[clamp(38px,8.2vw,76px)] leading-[1.06] font-medium tracking-[-0.025em] text-balance">
-            Cinevenn is the{" "}
-            <em className="text-gradient-gold italic">digital infrastructure</em>{" "}
-            for the global film industry.
+          <Reveal as="h1" delay={60} className="mb-6 font-display text-[clamp(40px,8.6vw,82px)] leading-[1.04] font-medium tracking-[-0.025em]">
+            Get seen. Get hired.{" "}
+            <em className="text-gradient-gold italic sm:block">Get credit.</em>
           </Reveal>
 
           <Reveal as="p" delay={120} className="mb-8.5 max-w-[60ch] text-[clamp(16.5px,2.1vw,19px)] text-muted-fg">
-            Verified profiles, real auditions, protected scripts, a working marketplace, open
-            challenges, and the tools to discover, connect and grow — one platform for everyone
-            who makes film happen. Phase 1 launches in India, the world&apos;s largest film
-            market by volume, before expanding globally.
+            A home for cinema. Verified profiles, Call Sheet for casting and crew, Script Seal for
+            writers, and every tool in between. Open to the world from day one.
           </Reveal>
 
-          <Reveal delay={180} className="mb-14 flex flex-wrap gap-3">
-            <a
-              href="#join"
-              className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full bg-accent px-6 text-[15px] font-semibold text-[#0a0a0a] transition-all duration-160 hover:bg-accent-hover hover:shadow-[0_0_26px_-6px_rgba(245,158,11,.5)]"
-            >
-              Be First to Join
-            </a>
-            <a
-              href="#features"
-              className="group inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full border border-line-strong px-6 text-[15px] font-semibold transition-colors duration-160 hover:border-white/28 hover:bg-card-hover"
-            >
-              How It Works
-              <ArrowDown className="size-4 transition-transform duration-240 group-hover:translate-y-0.5" />
+          <Reveal delay={180} className="mb-6 max-w-[560px]">
+            <SignupForm
+              id="claim"
+              source="hero"
+              note={
+                <>
+                  Founding Members get {value} of Cinevenn free for 12 months. No card needed.{" "}
+                  <Link href="/founding-terms" className={link}>
+                    Terms apply
+                  </Link>
+                  .
+                </>
+              }
+            />
+          </Reveal>
+
+          <Reveal as="p" delay={220} className="mb-14 text-sm text-dim">
+            A{" "}
+            <a href={site.ecosystem.url} rel="noopener" target="_blank" className={link}>
+              {site.ecosystem.name}
+            </a>{" "}
+            venture · Founded by{" "}
+            <a href={site.founder.url} rel="noopener" target="_blank" className={link}>
+              {site.founder.name} ({site.founder.alternateName})
             </a>
           </Reveal>
 
-          <Reveal delay={240} as="ul" className="grid gap-5 border-t border-line pt-8 sm:grid-cols-3 sm:gap-7">
+          <Reveal delay={240} as="ul" className="grid gap-6 border-t border-line pt-8 sm:grid-cols-2 sm:gap-7 lg:grid-cols-4">
             {stats.map((s) => (
-              <li key={s.label} className="flex flex-col gap-1">
-                <strong className="font-display text-3xl leading-none font-semibold text-accent">
+              <li key={s.label} className="flex flex-col gap-1.5">
+                <strong className="font-display text-[26px] leading-none font-semibold text-accent">
                   {s.value}
                 </strong>
                 <span className="text-sm text-dim">{s.label}</span>
