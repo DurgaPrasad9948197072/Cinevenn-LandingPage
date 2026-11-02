@@ -97,6 +97,9 @@ export default function SignupForm({ id: anchor, source, note, className = "" }:
         <p className="mt-1 text-muted-fg">
           Sit back and relax. We&apos;ll take care of everything from here.
         </p>
+        <p className="mt-3 text-sm text-dim">
+          Can&apos;t see it? Check your Promotions and Spam folders.
+        </p>
       </div>
     );
   }

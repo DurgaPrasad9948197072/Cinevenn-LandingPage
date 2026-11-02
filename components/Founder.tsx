@@ -20,13 +20,13 @@ export default function Founder() {
               Founder
             </p>
             <h2 className="mb-6 max-w-[20ch] font-display text-[clamp(28px,5.2vw,44px)] leading-[1.15] font-medium tracking-[-0.015em] text-balance">
-              Built by a filmmaker who loves cinema.
+              Built by someone who loves cinema.
             </h2>
           </Reveal>
           <Reveal as="p" delay={60} className="mb-6 max-w-[60ch] text-muted-fg">
             {site.founder.name}, known as {site.founder.alternateName}, is the founder of{" "}
-            {site.ecosystem.name} and Cinevenn. A filmmaker himself, he wrote and directed the short
-            film <em>Antarvahini</em>.
+            {site.ecosystem.name} and Cinevenn. He&apos;s building Cinevenn so the people who make film
+            can be seen, hired and credited.
           </Reveal>
           <Reveal as="p" delay={120} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[15px]">
             <a href={site.founder.url} rel="noopener" target="_blank" className={link}>

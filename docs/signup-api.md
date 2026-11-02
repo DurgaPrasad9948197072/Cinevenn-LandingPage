@@ -164,6 +164,9 @@ With thanks,
 
 Dinesh Koyyalamudi (46DC)
 Founder, Cinevenn
+
+P.S. So our launch email finds you, add contact@cinevenn.com to your
+contacts. If this landed in Promotions or Spam, drag it to your main inbox.
 ```
 
 **Footer (required in every email):**
