@@ -2,37 +2,36 @@ import Image from "next/image";
 import { site } from "@/lib/site";
 
 type Props = {
-  /** Sizing for the frame, e.g. "size-16". */
+  /** "card" is the 3:4 Founder-section portrait; "avatar" is a round head crop. */
+  variant?: "card" | "avatar";
+  /** Sizing for the frame, e.g. "size-16" or "w-64". */
   className?: string;
-  /** Text size for the monogram fallback. */
-  monogramClassName?: string;
 };
 
-/**
- * Founder photo, or a 46DC monogram until the press-shoot portrait is set in
- * site.founder.photo.
- */
-export default function FounderPortrait({ className = "", monogramClassName = "text-lg" }: Props) {
-  return (
-    <span
-      className={`relative block shrink-0 overflow-hidden rounded-full border border-accent/30 bg-[radial-gradient(circle_at_30%_25%,rgba(245,158,11,.22),var(--card)_70%)] ${className}`}
-    >
-      {site.founder.photo ? (
+const alt = `${site.founder.name} (${site.founder.alternateName})`;
+
+export default function FounderPortrait({ variant = "avatar", className = "" }: Props) {
+  if (variant === "card") {
+    return (
+      <span
+        className={`relative block aspect-[3/4] shrink-0 overflow-hidden rounded-2xl border border-line bg-card shadow-[0_24px_60px_-28px_rgba(0,0,0,.8)] ${className}`}
+      >
         <Image
-          src={site.founder.photo}
-          alt={`${site.founder.name} (${site.founder.alternateName})`}
+          src={site.founder.photo.portrait}
+          alt={alt}
           fill
-          sizes="(min-width: 1024px) 320px, 160px"
+          sizes="(min-width: 768px) 320px, 80vw"
           className="object-cover"
         />
-      ) : (
-        <span
-          aria-hidden
-          className={`absolute inset-0 flex items-center justify-center font-display font-semibold text-accent ${monogramClassName}`}
-        >
-          46DC
-        </span>
-      )}
+      </span>
+    );
+  }
+
+  return (
+    <span
+      className={`relative block shrink-0 overflow-hidden rounded-full border border-accent/30 bg-card ${className}`}
+    >
+      <Image src={site.founder.photo.avatar} alt={alt} fill sizes="128px" className="object-cover" />
     </span>
   );
 }

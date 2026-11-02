@@ -79,11 +79,8 @@ export const site = {
     url: "https://46dc.com",
     linkedin: "https://www.linkedin.com/in/the46dc",
     handle: "@the46dc",
-    /**
-     * Press-shoot portrait in /public, e.g. "/founder.jpg". Until it's added
-     * the founder card and Founder section show a monogram instead.
-     */
-    photo: null as string | null,
+    /** 3:4 crop for the Founder section, and a square head crop for avatars. */
+    photo: { portrait: "/founder-46dc.webp", avatar: "/founder-46dc-avatar.webp" },
   },
 } as const;
 
@@ -368,6 +365,7 @@ export const organizationSchema = {
     name: site.founder.name,
     alternateName: site.founder.alternateName,
     url: site.founder.url,
+    image: `${site.url}${site.founder.photo.portrait}`,
   },
 };
 

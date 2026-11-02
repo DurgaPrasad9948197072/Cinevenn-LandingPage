@@ -11,7 +11,7 @@ export default function Founder() {
     <section id="founder" className="py-22 md:py-28">
       <div className="mx-auto grid w-full max-w-[1140px] items-center gap-10 px-5 sm:px-7 md:grid-cols-[auto_minmax(0,1fr)] md:gap-14">
         <Reveal>
-          <FounderPortrait className="size-40 md:size-64" monogramClassName="text-5xl md:text-7xl" />
+          <FounderPortrait variant="card" className="w-full max-w-[300px] md:w-[300px]" />
         </Reveal>
 
         <div>
